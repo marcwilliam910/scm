@@ -5,7 +5,6 @@ import AuthVerificationTokenModel from "@/models/authVerificationToken";
 import jwt from "jsonwebtoken";
 import {mail} from "@/utils/mail";
 import ForgotPasswordModel from "@/models/forgotPass";
-import {v2 as cloudinary} from "cloudinary";
 import {isValidObjectId} from "mongoose";
 import cloudinaryUploader from "@/cloudinary";
 
