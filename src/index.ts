@@ -46,22 +46,16 @@ const server = http.createServer(app);
 const io = new Server(server, {
   path: "/socket-message",
   cors: {
-    origin:
-      process.env.NODE_ENV === "production"
-        ? ["exp://your-expo-app.exp.direct"] // We'll update this later
-        : ["http://localhost:19000", "http://localhost:19006"],
+    origin: "*", // Allow all origins for testing
     methods: ["GET", "POST"],
   },
 });
 
-// Updated CORS configuration for production
+// Allow all origins for testing
 app.use(
   cors({
-    origin:
-      process.env.NODE_ENV === "production"
-        ? ["https://your-frontend-domain.com"] // We'll update this later
-        : true, // Allow all origins in development
-    credentials: true,
+    origin: "*", // Allow all origins for testing
+    credentials: false, // Set to false when allowing all origins
   })
 );
 
