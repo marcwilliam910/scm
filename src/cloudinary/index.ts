@@ -1,12 +1,11 @@
-import {v2 as cloudinary} from "cloudinary";
+// cloudinary/index.ts
 
-cloudinary.config({
-  cloud_name: process.env.CLOUD_NAME,
-  api_key: process.env.CLOUD_KEY,
-  api_secret: process.env.CLOUD_SECRET,
-  secure: true,
-});
+const cloudinary = require("cloudinary").v2;
 
-export const cloudinaryUploader = cloudinary.uploader;
+// The SDK automatically uses the CLOUDINARY_URL environment variable.
+// No need for cloudinary.config() here.
+
+const cloudinaryUploader = cloudinary.uploader;
+
 export const cloudinaryApi = cloudinary.api;
 export default cloudinaryUploader;

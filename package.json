@@ -4,7 +4,7 @@
   "description": "",
   "license": "ISC",
   "author": "Marc",
-  "type": "module",
+  "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --respawn -r tsconfig-paths/register --transpile-only ./src/index.ts",
