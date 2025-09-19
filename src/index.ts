@@ -45,11 +45,37 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   path: "/socket-message",
+  cors: {
+    origin:
+      process.env.NODE_ENV === "production"
+        ? ["exp://your-expo-app.exp.direct"] // We'll update this later
+        : ["http://localhost:19000", "http://localhost:19006"],
+    methods: ["GET", "POST"],
+  },
 });
+
+// Updated CORS configuration for production
+app.use(
+  cors({
+    origin:
+      process.env.NODE_ENV === "production"
+        ? ["https://your-frontend-domain.com"] // We'll update this later
+        : true, // Allow all origins in development
+    credentials: true,
+  })
+);
 
 app.use(express.static("src/public"));
 app.use(express.json());
-app.use(cors());
+
+// Health check endpoint for Render
+app.get("/", (req, res) => {
+  res.json({
+    message: "Server is running!",
+    status: "healthy",
+    timestamp: new Date().toISOString(),
+  });
+});
 
 app.use("/auth", authRouter);
 app.use("/product", isAuth, productRouter);
@@ -77,6 +103,8 @@ io.use((socket, next) => {
 });
 
 io.on("connection", (socket) => {
+  console.log("User connected:", socket.id);
+
   const socketData = socket.data as {jwtDecode: {id: string}};
   const userId = socketData.jwtDecode.id;
 
@@ -109,7 +137,7 @@ io.on("connection", (socket) => {
   });
 
   socket.on("disconnect", () => {
-    console.log("user disconnected");
+    console.log("User disconnected:", socket.id);
   });
 });
 
@@ -119,6 +147,9 @@ app.use(function (err, req, res, next) {
   });
 } as express.ErrorRequestHandler);
 
-server.listen(3000, () => {
-  console.log("The server is runnun on http://localhost:3000");
+// Use environment variable for port (Render provides this)
+const PORT = process.env.PORT || 3000;
+
+server.listen(PORT, () => {
+  console.log(`The server is running on port ${PORT}`);
 });
