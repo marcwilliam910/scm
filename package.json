@@ -4,7 +4,7 @@
   "description": "",
   "license": "ISC",
   "author": "Marc",
-  "type": "commonjs",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --respawn -r tsconfig-paths/register --transpile-only ./src/index.ts",
@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
-    "cloudinary": "^1.41.0",
+    "cloudinary": "^2.7.0",
     "cors": "^2.8.5",
     "date-fns": "^4.1.0",
     "dotenv": "^17.2.1",
