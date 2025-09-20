@@ -1,6 +1,6 @@
 import "dotenv/config";
 import express from "express";
-import "./db";
+import {connectDB} from "./db";
 import "./cloudinary";
 import authRouter from "@/routes/auth";
 import productRouter from "@/routes/products";
@@ -144,6 +144,8 @@ app.use(function (err, req, res, next) {
 // Use environment variable for port (Render provides this)
 const PORT = process.env.PORT || 3000;
 
-server.listen(PORT, () => {
-  console.log(`The server is running on port ${PORT}`);
+connectDB().then(() => {
+  server.listen(PORT, () => {
+    console.log(`🚀 Server running on port ${PORT}`);
+  });
 });
