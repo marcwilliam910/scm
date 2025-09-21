@@ -11,5 +11,6 @@ cloudinary.config({
   secure: true,
 });
 
-module.exports = cloudinary.uploader;
-module.exports.cloudinaryApi = cloudinary.api;
+// Export using ES6 syntax to match your imports
+export const cloudinaryApi = cloudinary.api;
+export default cloudinary.uploader;
