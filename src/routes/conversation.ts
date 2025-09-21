@@ -3,7 +3,7 @@ import {
   getOrCreateConversation,
   getOldChats,
   markAsViewed,
-} from "@/controllers/conversation";
+} from "../controllers/conversation";
 import {Router} from "express";
 
 const router = Router();

@@ -1,5 +1,5 @@
-import ConversationModel from "@/models/conversation";
-import UserModel from "@/models/user";
+import ConversationModel from "../models/conversation";
+import UserModel from "../models/user";
 import {RequestHandler} from "express";
 import {isValidObjectId} from "mongoose";
 

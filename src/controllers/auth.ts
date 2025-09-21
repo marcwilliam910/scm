@@ -1,12 +1,12 @@
-import UserModel from "@/models/user";
+import UserModel from "../models/user";
 import {RequestHandler} from "express";
 import crypto from "crypto";
-import AuthVerificationTokenModel from "@/models/authVerificationToken";
+import AuthVerificationTokenModel from "../models/authVerificationToken";
 import jwt from "jsonwebtoken";
-import {mail} from "@/utils/mail";
-import ForgotPasswordModel from "@/models/forgotPass";
+import {mail} from "../utils/mail";
+import ForgotPasswordModel from "../models/forgotPass";
 import {isValidObjectId} from "mongoose";
-import cloudinaryUploader from "@/cloudinary";
+import cloudinaryUploader from "../cloudinary";
 
 const JWT_SECRET = process.env.JWT_SECRET!;
 const BASE_URL = process.env.BASE_URL!;

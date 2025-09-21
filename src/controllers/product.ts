@@ -1,9 +1,9 @@
-import ProductModel, {Categories} from "@/models/product";
+import ProductModel, {Categories} from "../models/product";
 import {RequestHandler} from "express";
-import cloudinaryUploader, {cloudinaryApi} from "@/cloudinary";
+import cloudinaryUploader, {cloudinaryApi} from "../cloudinary";
 import {UploadApiResponse} from "cloudinary";
 import {isValidObjectId} from "mongoose";
-import {User} from "@/models/user";
+import {User} from "../models/user";
 import mongoose from "mongoose";
 
 type Product = {

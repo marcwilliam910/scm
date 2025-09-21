@@ -12,15 +12,15 @@ import {
   grantAccessToken,
   updateAvatar,
   getPublicProfile,
-} from "@/controllers/auth";
-import {isAuth, isValidPassResetToken} from "@/middlewares/auth";
-import {fileParser} from "@/middlewares/fileParser";
-import {validate} from "@/middlewares/validate";
+} from "../controllers/auth";
+import {isAuth, isValidPassResetToken} from "../middlewares/auth";
+import {fileParser} from "../middlewares/fileParser";
+import {validate} from "../middlewares/validate";
 import {
   forgotPassSchema,
   userSchema,
   verifyUserSchema,
-} from "@/utils/validationSchema";
+} from "../utils/validationSchema";
 import {Router} from "express";
 
 const router = Router();

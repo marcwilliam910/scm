@@ -1,5 +1,5 @@
-import ForgotPasswordModel from "@/models/forgotPass";
-import UserModel from "@/models/user";
+import ForgotPasswordModel from "../models/forgotPass";
+import UserModel from "../models/user";
 import {RequestHandler} from "express";
 import jwt, {JsonWebTokenError, TokenExpiredError} from "jsonwebtoken";
 

@@ -1,4 +1,4 @@
-import {Categories} from "@/models/product";
+import {Categories} from "../models/product";
 import {isValid, parseISO} from "date-fns";
 import {isValidObjectId} from "mongoose";
 import * as yup from "yup";

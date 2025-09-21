@@ -8,10 +8,10 @@ import {
   getLatestProducts,
   getProductsByCategory,
   searchProduct,
-} from "@/controllers/product";
-import {fileParser} from "@/middlewares/fileParser";
-import {validate} from "@/middlewares/validate";
-import {productSchema} from "@/utils/validationSchema";
+} from "../controllers/product";
+import {fileParser} from "../middlewares/fileParser";
+import {validate} from "../middlewares/validate";
+import {productSchema} from "../utils/validationSchema";
 import {Router} from "express";
 
 const router = Router();
