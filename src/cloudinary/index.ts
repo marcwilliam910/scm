@@ -1,37 +1,22 @@
-console.log("=== CLOUDINARY MODULE DEBUG ===");
+import {v2 as cloudinary} from "cloudinary";
 
-// Check what require actually returns
-let cloudinaryModule;
-try {
-  cloudinaryModule = require("cloudinary");
-  console.log("require('cloudinary') returned:", typeof cloudinaryModule);
-  console.log("cloudinary keys:", Object.keys(cloudinaryModule || {}));
-  console.log(
-    "cloudinary stringified:",
-    JSON.stringify(cloudinaryModule, null, 2)
-  );
-} catch (error: any) {
-  console.error("require('cloudinary') failed:", error.message);
+console.log("Cloudinary:", cloudinary);
+const CLOUD_NAME = process.env.CLOUD_NAME || "";
+const CLOUD_KEY = process.env.CLOUD_KEY || "";
+const CLOUD_SECRET = process.env.CLOUD_SECRET || "";
+
+if (!CLOUD_NAME || !CLOUD_KEY || !CLOUD_SECRET) {
+  throw new Error("Missing Cloudinary environment variables");
 }
 
-// Try alternative requires
-try {
-  const alt1 = require("cloudinary/lib/cloudinary");
-  console.log("Alternative require 1 worked:", !!alt1);
-} catch (e: any) {
-  console.log("Alt require 1 failed:", e.message);
-}
+cloudinary.config({
+  cloud_name: CLOUD_NAME,
+  api_key: CLOUD_KEY,
+  api_secret: CLOUD_SECRET,
+  secure: true,
+});
 
-try {
-  const alt2 = require("cloudinary/lib/v2");
-  console.log("Alternative require 2 worked:", !!alt2);
-} catch (e: any) {
-  console.log("Alt require 2 failed:", e.message);
-}
+const cloudinaryUploader = cloudinary?.uploader;
 
-// Fallback exports
-const cloudinaryUploader = {};
-const cloudinaryApi = {};
-
-export {cloudinaryApi};
+export const cloudinaryApi = cloudinary?.api;
 export default cloudinaryUploader;
