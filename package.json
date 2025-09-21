@@ -9,8 +9,7 @@
   "scripts": {
     "dev": "ts-node-dev --respawn -r tsconfig-paths/register --transpile-only ./src/index.ts",
     "build": "tsc && tsc-alias",
-    "start": "node ./dist",
-    "postinstall": "npm run build"
+    "start": "node ./dist"
   },
   "dependencies": {
     "@types/bcrypt": "^6.0.0",
