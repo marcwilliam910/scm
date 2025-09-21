@@ -1,6 +1,7 @@
-import {v2 as cloudinary} from "cloudinary";
+const cloudinaryModule = require("cloudinary");
+const cloudinary = cloudinaryModule?.v2 || cloudinaryModule;
 
-console.log("Cloudinary:", cloudinary);
+console.log("Cloudinary keys:", Object.keys(cloudinary));
 const CLOUD_NAME = process.env.CLOUD_NAME || "";
 const CLOUD_KEY = process.env.CLOUD_KEY || "";
 const CLOUD_SECRET = process.env.CLOUD_SECRET || "";

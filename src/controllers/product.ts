@@ -1,7 +1,6 @@
 import ProductModel, {Categories} from "../models/product";
 import {RequestHandler} from "express";
 import cloudinaryUploader, {cloudinaryApi} from "../cloudinary";
-import {UploadApiResponse} from "cloudinary";
 import {isValidObjectId} from "mongoose";
 import {User} from "../models/user";
 import mongoose from "mongoose";
@@ -25,7 +24,7 @@ type Product = {
   };
 };
 
-function imageUploader(filepath: string): Promise<UploadApiResponse> {
+function imageUploader(filepath: string): Promise<any> {
   return cloudinaryUploader.upload(filepath, {
     folder: `products`,
     width: 1280,
@@ -81,7 +80,7 @@ export const createtNewProduct: RequestHandler = async (req, res) => {
   if (isMultipleImages) {
     const uploadPromises = images.map((img) => imageUploader(img.filepath));
     const uploadedImages = await Promise.all(uploadPromises);
-    newProduct.images = uploadedImages.map((img) => ({
+    newProduct.images = uploadedImages.map((img: any) => ({
       url: img.secure_url,
       id: img.public_id,
     }));
@@ -190,7 +189,7 @@ export const updateProduct: RequestHandler = async (req, res) => {
     if (isMultipleImages) {
       const uploadPromises = images.map((img) => imageUploader(img.filepath));
       const uploadedImages = await Promise.all(uploadPromises);
-      const updatedImages = uploadedImages.map((img) => ({
+      const updatedImages = uploadedImages.map((img: any) => ({
         url: img.secure_url,
         id: img.public_id,
       }));
