@@ -1,12 +1,8 @@
-const cloudinary = require("cloudinary").v2;
+const {v2: cloudinary} = require("cloudinary");
 
-const CLOUD_NAME = process.env.CLOUD_NAME!;
-const CLOUD_KEY = process.env.CLOUD_KEY!;
-const CLOUD_SECRET = process.env.CLOUD_SECRET!;
-
-console.log("CLOUD_NAME:", process.env.CLOUD_NAME);
-console.log("CLOUD_KEY:", process.env.CLOUD_KEY);
-console.log("CLOUD_SECRET:", process.env.CLOUD_SECRET);
+const CLOUD_NAME = process.env.CLOUD_NAME;
+const CLOUD_KEY = process.env.CLOUD_KEY;
+const CLOUD_SECRET = process.env.CLOUD_SECRET;
 
 cloudinary.config({
   cloud_name: CLOUD_NAME,
@@ -15,7 +11,5 @@ cloudinary.config({
   secure: true,
 });
 
-const cloudinaryUploader = cloudinary?.uploader;
-
-export const cloudinaryApi = cloudinary?.api;
-export default cloudinaryUploader;
+module.exports = cloudinary.uploader;
+module.exports.cloudinaryApi = cloudinary.api;
