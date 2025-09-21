@@ -8,9 +8,9 @@
     "strict": true,
     "skipLibCheck": true,
     "outDir": "./dist",
-    "baseUrl": "./src",
-    "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true
+    "baseUrl": "./src"
+    // "resolveJsonModule": true,
+    // "allowSyntheticDefaultImports": true
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]

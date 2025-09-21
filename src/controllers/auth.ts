@@ -6,7 +6,7 @@ import jwt from "jsonwebtoken";
 import {mail} from "../utils/mail";
 import ForgotPasswordModel from "../models/forgotPass";
 import {isValidObjectId} from "mongoose";
-import cloudinaryUploader from "../cloudinary";
+import cloudinaryUploader from "../cloud";
 
 const JWT_SECRET = process.env.JWT_SECRET!;
 const BASE_URL = process.env.BASE_URL!;

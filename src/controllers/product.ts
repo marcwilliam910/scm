@@ -1,6 +1,6 @@
 import ProductModel, {Categories} from "../models/product";
 import {RequestHandler} from "express";
-import cloudinaryUploader, {cloudinaryApi} from "../cloudinary";
+import cloudinaryUploader, {cloudinaryApi} from "../cloud";
 import {isValidObjectId} from "mongoose";
 import {User} from "../models/user";
 import mongoose from "mongoose";

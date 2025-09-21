@@ -1,7 +1,7 @@
 import "dotenv/config";
 import express from "express";
 import {connectDB} from "./db";
-import "./cloudinary";
+import "./cloud";
 import authRouter from "../src/routes/auth";
 import productRouter from "../src/routes/products";
 import conversationRouter from "../src/routes/conversation";
