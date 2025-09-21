@@ -4,6 +4,10 @@ const CLOUD_NAME = process.env.CLOUD_NAME!;
 const CLOUD_KEY = process.env.CLOUD_KEY!;
 const CLOUD_SECRET = process.env.CLOUD_SECRET!;
 
+console.log("CLOUD_NAME:", process.env.CLOUD_NAME);
+console.log("CLOUD_KEY:", process.env.CLOUD_KEY);
+console.log("CLOUD_SECRET:", process.env.CLOUD_SECRET);
+
 cloudinary.config({
   cloud_name: CLOUD_NAME,
   api_key: CLOUD_KEY,
